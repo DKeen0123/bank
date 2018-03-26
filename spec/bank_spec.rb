@@ -15,4 +15,11 @@ describe Bank do
       expect { bank.deposit(amount) }.to change { bank.balance }.by 10
     end
   end
+
+  describe 'withdraw' do
+    it 'decreases balance by the amount being withdrawn' do
+      amount = 10
+      expect { bank.withdraw(amount) }.to change { bank.balance }.by(-10)
+    end
+  end
 end

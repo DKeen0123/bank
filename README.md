@@ -30,22 +30,19 @@ example deposits and withdrawals:
 
 ```
 2.5.0 :001 > account = Account.new
- => #<Account:0x00007fe22c96b980 @balance=0, @statement=#<Statement:0x00007fe22c96b840 @transactions=[]>>
-2.5.0 :002 > account.deposit(300)
- => [["deposit", "26/03/2018", 300, 300]]
-2.5.0 :003 > account.withdraw(45)
- => [["deposit", "26/03/2018", 300, 300], ["withdraw", "26/03/2018", 45, 255]]
-2.5.0 :004 > account.deposit(120)
- => [["deposit", "26/03/2018", 300, 300], ["withdraw", "26/03/2018", 45, 255], ["deposit", "26/03/2018", 120, 375]]
+ => #<Account:0x00007f92d58d2da8 @balance=0, @statement=#<Statement:0x00007f92d58d27b8 @transactions=[]>, @calculator=#<Calculator:0x00007f92d58d1f98>>
+2.5.0 :002 > account.deposit(22)
+ => [["deposit", "26/03/2018", 22, 22]]
+2.5.0 :003 > account.withdraw(6)
+ => [["deposit", "26/03/2018", 22, 22], ["withdraw", "26/03/2018", 6, 16]]
 ```
 
 and the printed statement:
 
 ```
-2.5.0 :005 > account.statement.display
-date: 26/03/2018, credit: 300, debit: 0, balance: 300
-date: 26/03/2018, credit: 0, debit: 45, balance: 255
-date: 26/03/2018, credit: 120, debit: 0, balance: 375
+2.5.0 :004 > account.statement.display
+date: 26/03/2018, credit: 22, debit: 0, balance: 22
+date: 26/03/2018, credit: 0, debit: 6, balance: 16
 ```
 
 ## My approach
@@ -111,6 +108,8 @@ I then built a method to print the statement array of arrays in a readable fashi
 My account object was now responsible for too much, and so to adhere to the single responsibility principle I decided to move the statement responsibility into a separate class.
 
 this new 'Statement' class initializes with an array that has transactions pushed into it by the Account class whenever a user deposits or withdraws. It has the functionality to print these transaction array objects into a readable format.
+
+I then refactored further, as I realised that the account class still had 2 responsibilities: updating the balance and adding/subtracting logic. So i created a calculator class that did this instead.
 
 ## Closing thoughts
 

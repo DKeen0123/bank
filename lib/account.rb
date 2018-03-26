@@ -1,9 +1,11 @@
+require 'statement'
+
 class Account
   attr_reader :balance, :statement
 
-  def initialize
+  def initialize(statement = Statement.new)
     @balance = 0
-    @statement = []
+    @statement = statement
   end
 
   def deposit(amount)
@@ -14,16 +16,6 @@ class Account
   def withdraw(amount)
     @balance -= amount
     transaction(['withdraw', Time.now.strftime('%d/%m/%Y'), amount, @balance])
-  end
-
-  def print_statement(statements)
-    statements.each do |statement|
-      if statement[0] == 'deposit'
-        puts "date: #{statement[1]}, credit: #{statement[2]}, debit: 0, balance: #{statement[3]}"
-      else
-        puts "date: #{statement[1]}, credit: 0, debit: #{statement[2]}, balance: #{statement[3]}"
-      end
-    end
   end
 
   private

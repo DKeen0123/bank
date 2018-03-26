@@ -17,11 +17,11 @@ describe Account do
   describe 'deposit' do
     amount = 10
 
-    it 'increases balance by the amount being deposited' do
+    xit 'increases balance by the amount being deposited' do
       expect { account.deposit(amount) }.to change { account.balance }.by 10
     end
 
-    it 'pushes an array with the type, date, amount deposited and current
+    xit 'pushes an array with the type, date, amount deposited and current
     balance into the statement array' do
       date = Time.now.strftime('%d/%m/%Y')
       account.deposit(amount)
@@ -34,36 +34,17 @@ describe Account do
   describe 'withdraw' do
     amount = 10
 
-    it 'decreases balance by the amount being withdrawn' do
+    xit 'decreases balance by the amount being withdrawn' do
       expect { account.withdraw(amount) }.to change { account.balance }.by(-10)
     end
 
-    it 'pushes an array with the type, date, amount withdrawn and current
+    xit 'pushes an array with the type, date, amount withdrawn and current
     balance into the statement array' do
       date = Time.now.strftime('%d/%m/%Y')
       account.withdraw(amount)
       expect(account.statement).to include(
         ['withdraw', date, amount, account.balance]
       )
-    end
-  end
-
-  describe 'print_statement' do
-    amount = 10
-    date = Time.now.strftime('%d/%m/%Y')
-
-    it 'takes an array of arrays and prints them in a readable format' do
-      account.deposit(amount)
-      expect { account.print_statement(account.statement) }.to output(
-        "date: #{date}, credit: #{amount}, debit: 0, balance: #{account.balance}\n"
-      ).to_stdout
-    end
-
-    it 'updates credit or debit depending on whether it is a deposit or withdrawal' do
-      account.withdraw(amount)
-      expect { account.print_statement(account.statement) }.to output(
-        "date: #{date}, credit: 0, debit: #{amount}, balance: #{account.balance}\n"
-      ).to_stdout
     end
   end
 end

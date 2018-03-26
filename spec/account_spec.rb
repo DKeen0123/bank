@@ -1,7 +1,8 @@
 require 'account'
 
 describe Account do
-  subject(:account) { described_class.new }
+  let(:statement) { double 'statement'}
+  subject(:account) { described_class.new(statement) }
 
   describe 'initialize' do
     it 'initializes with a balance of 0' do
@@ -9,7 +10,7 @@ describe Account do
     end
 
     it 'initializes with an empty statement array' do
-      expect(account.statement).to eq []
+      expect(account.statement).to eq statement
     end
   end
 

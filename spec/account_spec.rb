@@ -1,7 +1,7 @@
 require 'account'
 
 describe Account do
-  let(:statement) { double 'statement'}
+  let(:statement) { double 'statement', transactions: [] }
   subject(:account) { described_class.new(statement) }
 
   describe 'initialize' do
@@ -21,11 +21,11 @@ describe Account do
       expect { account.deposit(amount) }.to change { account.balance }.by 10
     end
 
-    xit 'pushes an array with the type, date, amount deposited and current
-    balance into the statement array' do
+    it 'pushes an array with the type, date, amount deposited and current
+    balance into the statements transactions array' do
       date = Time.now.strftime('%d/%m/%Y')
       account.deposit(amount)
-      expect(account.statement).to include(
+      expect(account.statement.transactions).to include(
         ['deposit', date, amount, account.balance]
       )
     end

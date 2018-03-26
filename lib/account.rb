@@ -21,6 +21,6 @@ class Account
   private
 
   def transaction(array)
-    @statement.push(array)
+    @statement.transactions.push(array)
   end
 end

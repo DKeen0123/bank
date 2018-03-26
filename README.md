@@ -69,3 +69,11 @@ As a user,
 so I can see my recent account activity,
 I want to see an account statement with past transaction history.
 ```
+
+### First steps
+
+I diagrammed out what the basic structure would be, deciding on an overall class (first called 'Bank' but later refactored to 'Account') and a statement class to print out the statement as seen in the above acceptance criteria.
+
+I then went about creating the Account class in a TDD manner, first ensuring a readable balance, then a deposit method and a withdraw method which would add to or take away from the balance.
+
+I then created a statement array within the class that has array's given to it when a user deposits or withdraws with the transaction info, in preparation for printing when a user so desires.

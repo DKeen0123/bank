@@ -18,7 +18,7 @@ class Account
 
   def print_statement(statements)
     statements.each do |statement|
-      if statement[0] === 'deposit'
+      if statement[0] == 'deposit'
         puts "date: #{statement[1]}, credit: #{statement[2]}, debit: 0, balance: #{statement[3]}"
       else
         puts "date: #{statement[1]}, credit: 0, debit: #{statement[2]}, balance: #{statement[3]}"

@@ -77,3 +77,9 @@ I diagrammed out what the basic structure would be, deciding on an overall class
 I then went about creating the Account class in a TDD manner, first ensuring a readable balance, then a deposit method and a withdraw method which would add to or take away from the balance.
 
 I then created a statement array within the class that has array's given to it when a user deposits or withdraws with the transaction info, in preparation for printing when a user so desires.
+
+I then built a method to print the statement array of arrays in a readable fashion.
+
+### Refactoring
+
+My account object was now responsible for too much, and so to adhere to the single responsibility principles I decided to move the statement responsibility into a separate class.

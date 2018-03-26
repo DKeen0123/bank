@@ -2,15 +2,20 @@ require 'account'
 
 describe Account do
   let(:statement) { double 'statement', transactions: [] }
-  subject(:account) { described_class.new(statement) }
+  let(:statement) { double 'calculator' }
+  subject(:account) { described_class.new(statement, calculator) }
 
   describe 'initialize' do
     it 'initializes with a balance of 0' do
       expect(account.balance).to eq 0
     end
 
-    it 'initializes with an empty statement array' do
+    it 'initializes with a statement object' do
       expect(account.statement).to eq statement
+    end
+
+    it 'initializes with a calculator object' do
+      expect(account.calculator).to eq calculator
     end
   end
 

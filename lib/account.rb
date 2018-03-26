@@ -8,15 +8,17 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    @statement.push(
-      ['deposit', Time.now.strftime('%d/%m/%Y'), amount, @balance]
-    )
+    transaction(['deposit', Time.now.strftime('%d/%m/%Y'), amount, @balance])
   end
 
   def withdraw(amount)
     @balance -= amount
-    @statement.push(
-      ['withdraw', Time.now.strftime('%d/%m/%Y'), amount, @balance]
-    )
+    transaction(['withdraw', Time.now.strftime('%d/%m/%Y'), amount, @balance])
+  end
+
+  private
+
+  def transaction(array)
+    @statement.push(array)
   end
 end

@@ -57,5 +57,12 @@ describe Account do
         "date: #{date}, credit: #{amount}, debit: 0, balance: #{account.balance}\n"
       ).to_stdout
     end
+
+    it 'updates credit or debit depending on whether it is a deposit or withdrawal' do
+      account.withdraw(amount)
+      expect { account.print_statement(account.statement) }.to output(
+        "date: #{date}, credit: 0, debit: #{amount}, balance: #{account.balance}\n"
+      ).to_stdout
+    end
   end
 end

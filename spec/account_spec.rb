@@ -22,10 +22,10 @@ describe Account do
 
     it 'pushes an array with the type, date, amount deposited and current
     balance into the statement array' do
-      time = Time.now.strftime('%d/%m/%Y')
+      date = Time.now.strftime('%d/%m/%Y')
       account.deposit(amount)
       expect(account.statement).to include(
-        ['deposit', time, amount, account.balance]
+        ['deposit', date, amount, account.balance]
       )
     end
   end
@@ -39,11 +39,24 @@ describe Account do
 
     it 'pushes an array with the type, date, amount withdrawn and current
     balance into the statement array' do
-      time = Time.now.strftime('%d/%m/%Y')
+      date = Time.now.strftime('%d/%m/%Y')
       account.withdraw(amount)
       expect(account.statement).to include(
-        ['withdraw', time, amount, account.balance]
+        ['withdraw', date, amount, account.balance]
       )
+    end
+  end
+
+  describe 'print_statement' do
+    amount = 10
+    date = Time.now.strftime('%d/%m/%Y')
+
+    it 'takes an array of arrays and prints them in a readable format' do
+      account.deposit(amount)
+      expect { account.print_statement(account.statement) }.to output(
+        "date: #{date}, credit: #{amount}, debit: 0,
+        balance: #{account.balance}"
+      ).to_stdout
     end
   end
 end

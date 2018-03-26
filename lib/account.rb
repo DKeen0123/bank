@@ -1,9 +1,10 @@
 class Account
-  attr_reader :balance, :statement
+  attr_reader :balance, :statement, :calculator
 
-  def initialize(statement = Statement.new)
+  def initialize(statement = Statement.new, calculator = Calculator.new)
     @balance = 0
     @statement = statement
+    @calculator = calculator
   end
 
   def deposit(amount)

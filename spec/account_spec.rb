@@ -2,7 +2,7 @@ require 'account'
 
 describe Account do
   let(:statement) { double 'statement', transactions: [] }
-  let(:statement) { double 'calculator' }
+  let(:calculator) { double 'calculator' }
   subject(:account) { described_class.new(statement, calculator) }
 
   describe 'initialize' do

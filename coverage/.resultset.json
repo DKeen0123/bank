@@ -105,6 +105,10 @@
         1,
         null,
         null,
+        1,
+        1,
+        null,
+        null,
         null
       ],
       "/Users/danielkeen/Projects/tech-tests/bank/spec/statement_spec.rb": [
@@ -161,6 +165,6 @@
         null
       ]
     },
-    "timestamp": 1522078133
+    "timestamp": 1522078205
   }
 }

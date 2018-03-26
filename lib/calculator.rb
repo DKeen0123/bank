@@ -4,4 +4,8 @@ class Calculator
     numbers.inject(:+)
   end
 
+  def subtract(numbers)
+    numbers.inject(:-)
+  end
+
 end

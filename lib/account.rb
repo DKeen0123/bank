@@ -16,6 +16,12 @@ class Account
     transaction(['withdraw', Time.now.strftime('%d/%m/%Y'), amount, @balance])
   end
 
+  def print_statement(statements)
+    statements.each { |statement|
+      puts "date: #{statement[1]}, credit: #{statement[2]}, debit: 0, balance: #{statement[3]}"
+    }
+  end
+
   private
 
   def transaction(array)

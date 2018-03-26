@@ -54,8 +54,7 @@ describe Account do
     it 'takes an array of arrays and prints them in a readable format' do
       account.deposit(amount)
       expect { account.print_statement(account.statement) }.to output(
-        "date: #{date}, credit: #{amount}, debit: 0,
-        balance: #{account.balance}"
+        "date: #{date}, credit: #{amount}, debit: 0, balance: #{account.balance}\n"
       ).to_stdout
     end
   end

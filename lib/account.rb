@@ -7,14 +7,14 @@ class Account
     @calculator = calculator
   end
 
-  def deposit(amount)
+  def deposit(amount, time = Time.now.strftime('%d/%m/%Y'))
     @balance = @calculator.add([@balance, amount])
-    transaction(['deposit', Time.now.strftime('%d/%m/%Y'), amount, @balance])
+    transaction(['deposit', time, amount, @balance])
   end
 
-  def withdraw(amount)
+  def withdraw(amount, time = Time.now.strftime('%d/%m/%Y'))
     @balance = @calculator.subtract([@balance, amount])
-    transaction(['withdraw', Time.now.strftime('%d/%m/%Y'), amount, @balance])
+    transaction(['withdraw', time, amount, @balance])
   end
 
   private

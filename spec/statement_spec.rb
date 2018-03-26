@@ -10,7 +10,7 @@ describe Statement do
   end
 
   describe '#display' do
-    date = Time.now.strftime('%d/%m/%Y')
+    date = '06/06/2018'
     amount = 10
 
     it 'prints a deposit statement in a user-friendly format' do

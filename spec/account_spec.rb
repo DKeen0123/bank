@@ -31,8 +31,8 @@ describe Account do
 
     it 'pushes an array with the type, date, amount deposited and current
     balance into the statements transactions array' do
-      date = Time.now.strftime('%d/%m/%Y')
-      account.deposit(amount)
+      date = '06/06/2018'
+      account.deposit(amount, date)
       expect(account.statement.transactions).to include(
         ['deposit', date, amount, account.balance]
       )
@@ -46,7 +46,8 @@ describe Account do
     end
 
     it 'decreases balance by the amount being withdrawn' do
-      expect { account.withdraw(amount) }.to change { account.balance }.by(-10)
+      date = '06/06/2018'
+      expect { account.withdraw(amount, date) }.to change { account.balance }.by(-10)
     end
 
     it 'pushes an array with the type, date, amount withdrawn and current

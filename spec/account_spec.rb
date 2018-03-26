@@ -17,7 +17,7 @@ describe Account do
   describe 'deposit' do
     amount = 10
 
-    xit 'increases balance by the amount being deposited' do
+    it 'increases balance by the amount being deposited' do
       expect { account.deposit(amount) }.to change { account.balance }.by 10
     end
 
@@ -34,15 +34,15 @@ describe Account do
   describe 'withdraw' do
     amount = 10
 
-    xit 'decreases balance by the amount being withdrawn' do
+    it 'decreases balance by the amount being withdrawn' do
       expect { account.withdraw(amount) }.to change { account.balance }.by(-10)
     end
 
-    xit 'pushes an array with the type, date, amount withdrawn and current
+    it 'pushes an array with the type, date, amount withdrawn and current
     balance into the statement array' do
       date = Time.now.strftime('%d/%m/%Y')
       account.withdraw(amount)
-      expect(account.statement).to include(
+      expect(account.statement.transactions).to include(
         ['withdraw', date, amount, account.balance]
       )
     end

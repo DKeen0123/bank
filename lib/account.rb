@@ -15,5 +15,8 @@ class Account
 
   def withdraw(amount)
     @balance -= amount
+    @statement.push(
+      ['withdraw', Time.now.strftime('%d/%m/%Y'), amount, @balance]
+    )
   end
 end

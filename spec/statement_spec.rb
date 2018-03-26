@@ -15,7 +15,7 @@ describe Statement do
     it 'prints a deposit statement in a user-friendly format' do
       deposit = ['deposit', date, amount, amount]
       statement.transactions.push(deposit)
-      expect { statement.print_statement(statement.transactions) }.to output(
+      expect { statement.display(statement.transactions) }.to output(
         "date: #{date}, credit: #{amount}, debit: 0, balance: #{amount}\n"
       ).to_stdout
     end

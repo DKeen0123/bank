@@ -22,6 +22,32 @@ The application is unit tested with RSpec. To run the tests, go to the root of t
  rspec
 ```
 
+## Example usage
+
+the application can be started by going to the root of the directory and running the command 'irb' in the terminal.
+
+example deposits and withdrawals:
+
+```
+2.5.0 :001 > account = Account.new
+ => #<Account:0x00007fe22c96b980 @balance=0, @statement=#<Statement:0x00007fe22c96b840 @transactions=[]>>
+2.5.0 :002 > account.deposit(300)
+ => [["deposit", "26/03/2018", 300, 300]]
+2.5.0 :003 > account.withdraw(45)
+ => [["deposit", "26/03/2018", 300, 300], ["withdraw", "26/03/2018", 45, 255]]
+2.5.0 :004 > account.deposit(120)
+ => [["deposit", "26/03/2018", 300, 300], ["withdraw", "26/03/2018", 45, 255], ["deposit", "26/03/2018", 120, 375]]
+```
+
+and the printed statement:
+
+```
+2.5.0 :005 > account.statement.display
+date: 26/03/2018, credit: 300, debit: 0, balance: 300
+date: 26/03/2018, credit: 0, debit: 45, balance: 255
+date: 26/03/2018, credit: 120, debit: 0, balance: 375
+```
+
 ## My approach
 
 I began by writing out some basic user stories to fulfil the following requirements and acceptance criteria:
@@ -82,4 +108,12 @@ I then built a method to print the statement array of arrays in a readable fashi
 
 ### Refactoring
 
-My account object was now responsible for too much, and so to adhere to the single responsibility principles I decided to move the statement responsibility into a separate class.
+My account object was now responsible for too much, and so to adhere to the single responsibility principle I decided to move the statement responsibility into a separate class.
+
+this new 'Statement' class initializes with an array that has transactions pushed into it by the Account class whenever a user deposits or withdraws. It has the functionality to print these transaction array objects into a readable format.
+
+## Closing thoughts
+
+My printed statement is a little more simplistic than the example given in the acceptance criteria. However, I felt that the things being tested here are my object-oriented design principles and logic/ process, rather than the ability to build a nice looking command line interface.
+
+I did consider extracting the logic that adds to and withdraws from the balance into another class, but felt it was overkill, and would result in more lines of code. Should it need to be extracted in the future, it would be an easy refactor.

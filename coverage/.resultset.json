@@ -79,6 +79,24 @@
         null,
         null
       ],
+      "/Users/danielkeen/Projects/tech-tests/bank/spec/calculator_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/Users/danielkeen/Projects/tech-tests/bank/lib/calculator.rb": [
+        1,
+        null,
+        null
+      ],
       "/Users/danielkeen/Projects/tech-tests/bank/spec/statement_spec.rb": [
         1,
         null,
@@ -133,6 +151,6 @@
         null
       ]
     },
-    "timestamp": 1522077149
+    "timestamp": 1522077908
   }
 }

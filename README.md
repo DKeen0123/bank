@@ -74,7 +74,7 @@ date       || credit  || debit  || balance
 10/01/2012 || 1000.00 ||        || 1000.00
 ```
 
-the user stories are as follows:
+the user stories I created are as follows:
 
 ### User stories
 

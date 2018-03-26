@@ -115,5 +115,3 @@ this new 'Statement' class initializes with an array that has transactions pushe
 ## Closing thoughts
 
 My printed statement is a little more simplistic than the example given in the acceptance criteria. However, I felt that the things being tested here are my object-oriented design principles and logic/ process, rather than the ability to build a nice looking command line interface.
-
-I did consider extracting the logic that adds to and withdraws from the balance into another class, but felt it was overkill, and would result in more lines of code. Should it need to be extracted in the future, it would be an easy refactor.

@@ -5,7 +5,7 @@ describe Account do
   let(:calculator) { double 'calculator' }
   subject(:account) { described_class.new(statement, calculator) }
 
-  describe 'initialize' do
+  describe '#initialize' do
     it 'initializes with a balance of 0' do
       expect(account.balance).to eq 0
     end
@@ -19,7 +19,7 @@ describe Account do
     end
   end
 
-  describe 'deposit' do
+  describe '#deposit' do
     amount = 10
     before(:each) do
       allow(calculator).to receive(:add) {[0, 10]}.and_return 10
@@ -39,7 +39,7 @@ describe Account do
     end
   end
 
-  describe 'withdraw' do
+  describe '#withdraw' do
     amount = 10
     before(:each) do
       allow(calculator).to receive(:subtract) {[0, 10]}.and_return(-10)

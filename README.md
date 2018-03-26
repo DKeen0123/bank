@@ -114,3 +114,17 @@ I then refactored further, as I realised that the account class still had 2 resp
 ## Closing thoughts
 
 My printed statement is a little more simplistic than the example given in the acceptance criteria. However, I felt that the things being tested here are my object-oriented design principles and logic/ process, rather than the ability to build a nice looking command line interface.
+
+## Next Steps:
+
+* Extracting the transaction array into an object with methods to read each part. (transaction.new(['deposit', time, amount, balance]))
+
+* The transaction private method is updating the state of the statement class so should be in that class.
+
+* Use Timecop to mock Time.
+
+* Make the print out look exactly like the tasks.
+
+* calculator should be a module.
+
+* maybe no need to hold balance in a variable - it is stored in transactions array in statement so could read it from that.

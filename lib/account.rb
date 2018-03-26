@@ -8,8 +8,8 @@ class Account
   end
 
   def deposit(amount, time = Time.now.strftime('%d/%m/%Y'))
-    @balance = @calculator.add([@balance, amount])
-    transaction(['deposit', time, amount, @balance])
+    @balance = @calculator.add([balance, amount])
+    transaction(['deposit', time, amount, balance])
   end
 
   def withdraw(amount, time = Time.now.strftime('%d/%m/%Y'))

@@ -8,6 +8,7 @@ class Account
 
   def deposit(amount)
     @balance += amount
+    @statement.push([Time.now.strftime('%d/%m/%Y'), amount, @balance])
   end
 
   def withdraw(amount)

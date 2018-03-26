@@ -20,10 +20,11 @@ describe Account do
       expect { account.deposit(amount) }.to change { account.balance }.by 10
     end
 
-    it 'pushes an array with the, date, amount deposited and current balance into the statement array' do
+    it 'pushes an array with the, date, amount deposited and current balance
+    into the statement array' do
       time = Time.now.strftime('%d/%m/%Y')
       account.deposit(amount)
-      expect(account.statement).to include([time, amount, account.balance ])
+      expect(account.statement).to include([time, amount, account.balance])
     end
   end
 

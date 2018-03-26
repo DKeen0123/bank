@@ -21,6 +21,9 @@ describe Account do
 
   describe 'deposit' do
     amount = 10
+    before(:each) do
+      allow(calculator).to receive(:add) {[0, 10]}.and_return 10
+    end
 
     it 'increases balance by the amount being deposited' do
       expect { account.deposit(amount) }.to change { account.balance }.by 10
@@ -38,6 +41,9 @@ describe Account do
 
   describe 'withdraw' do
     amount = 10
+    before(:each) do
+      allow(calculator).to receive(:subtract) {[0, 10]}.and_return(-10)
+    end
 
     it 'decreases balance by the amount being withdrawn' do
       expect { account.withdraw(amount) }.to change { account.balance }.by(-10)
